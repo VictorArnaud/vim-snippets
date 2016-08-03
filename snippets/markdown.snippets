@@ -1,139 +1,188 @@
 # Markdown
 
-# Includes octopress (http://octopress.org/) snippets
+# ------------------------- MENU --------------------------------
+# CABEÇALHOS: 14
+# EMFASES: 25
+# LISTAS: 33
+# LINKS: 51
+# IMAGENS: 56
+# TABELAS: 61
+# CITAÇÃO: 68
+# LINHA HORIZONTAIS: 73
+# YOUTUBE VIDEOS: 79
+# CODIGOS: 83
+# ------------------------- CABEÇALHO ---------------------------
 
-# The suffix `c` stands for "Clipboard".
+snippet #
+	# ${1:titulo1}
 
-snippet [
-	[${1:text}](http://${2:address})
-snippet [*
-	[${1:link}](${2:`@*`})
-snippet [c
-	[${1:link}](${2:`@+`})
-snippet ["
-	[${1:text}](http://${2:address} "${3:title}")
-snippet ["*
-	[${1:link}](${2:`@*`} "${3:title}")
-snippet ["c
-	[${1:link}](${2:`@+`} "${3:title}")
-snippet [:
-	[${1:id}]: http://${2:url}
+snippet ##
+	## ${1:titulo2}
 
-snippet [:*
-	[${1:id}]: ${2:`@*`}
+snippet ###
+	### ${1:titulo3}
 
-snippet [:c
-	[${1:id}]: ${2:`@+`}
+# ------------------------- EMFASES -----------------------------
 
-snippet [:"
-	[${1:id}]: http://${2:url} "${3:title}"
+snippet italic
+	_${1:frase}_
 
-snippet [:"*
-	[${1:id}]: ${2:`@*`} "${3:title}"
+snippet bold
+	**${1:frase}**
 
-snippet [:"c
-	[${1:id}]: ${2:`@+`} "${3:title}"
+# ------------------------- LISTAS ------------------------------
 
-snippet ![
-	![${1:alttext}](${2:/images/image.jpg})
-snippet ![*
-	![${1:alt}](${2:`@*`})
-snippet ![c
-	![${1:alt}](${2:`@+`})
-snippet !["
-	![${1:alttext}](${2:/images/image.jpg} "${3:title}")
-snippet !["*
-	![${1:alt}](${2:`@*`} "${3:title}")
-snippet !["c
-	![${1:alt}](${2:`@+`} "${3:title}")
-snippet ![:
-	![${1:id}]: ${2:url}
+snippet mix
+	1. ${1:item1}
+	2. ${2:item2}
+	⋅⋅* ${3:subitem nao ordenado}
+	3. ${4:item3}
+	⋅⋅1. ${5:subitem ordenado}
+	4. ${6:item4}
 
-snippet ![:*
-	![${1:id}]: ${2:`@*`}
+snippet enum
+	1. ${1.item1}
+	2. ${2.item2}
 
-snippet ![:"
-	![${1:id}]: ${2:url} "${3:title}"
+snippet list
+	* ${1:item1}
+	* ${2:item2}
 
-snippet ![:"*
-	![${1:id}]: ${2:`@*`} "${3:title}"
+# ------------------------- LINKS -------------------------------
 
-snippet ![:"c
-	![${1:id}]: ${2:`@+`} "${3:title}"
+snippet link
+	[${1:legenda}](${2:link})
 
-snippet <
-	<http://${1:url}>
-snippet <*
-	<`@*`>
-snippet <c
-	<`@+`>
-snippet **
-	**${1:bold}**
-snippet __
-	__${1:bold}__
-snippet ===
-	`repeat('=', strlen(getline(line(".") - 1)) - strlen(getline('.')))`
-
-	${0}
-snippet -
-	-   ${0}
-snippet ---
-	`repeat('-', strlen(getline(line(".") - 1)) - strlen(getline('.')))`
-
-	${0}
-
-snippet blockquote
-	{% blockquote %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-author
-	{% blockquote ${1:author}, ${2:title} %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-link
-	{% blockquote ${1:author} ${2:URL} ${3:link_text} %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet ```
-	\`\`\`
-	${1:code}
-	\`\`\`
-
-# Language.
-snippet ```l
-	\`\`\`${1:language}
-	${2:code}
-	\`\`\`
-
-snippet codeblock-short
-	{% codeblock %}
-	${0:code_snippet}
-	{% endcodeblock %}
-
-snippet codeblock-full
-	{% codeblock ${1:title} lang:${2:language} ${3:URL} ${4:link_text} %}
-	${0:code_snippet}
-	{% endcodeblock %}
-
-snippet gist-full
-	{% gist ${1:gist_id} ${0:filename} %}
-
-snippet gist-short
-	{% gist ${0:gist_id} %}
+# ------------------------- IMAGENS -----------------------------
 
 snippet img
-	{% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${0:alt_text} %}
+	![${1:legenda}](${2:caminho})
+
+# ------------------------- TABELAS -----------------------------
+
+snippet table
+	| **${1:titulo1}** | **${2:titulo2}** |
+	|:----------------:|:-----------------|
+	| ${3:conteudo}    | ${4:conteudo} 		|
+
+# ------------------------- CITAÇÃO -----------------------------
+
+snippet cit
+	> ${1:citação}
+
+# -------------------- LINHAS HORIZONTAIS -----------------------
+
+snippet line
+	___
+
+# -------------------- VIDEOS YOUTUBE ---------------------------
 
 snippet youtube
-	{% youtube ${0:video_id} %}
+	[![${1:legenda}](http://img.youtube.com/vi/${2:ID do youtube}/0.jpg)](http://www.youtube.com/watch?v=${3:ID do youtube})
 
-# The quote should appear only once in the text. It is inherently part of it.
-# See http://octopress.org/docs/plugins/pullquote/ for more info.
+# -------------------------- CODIGOS ----------------------------
 
-snippet pullquote
-	{% pullquote %}
-	${1:text} {" ${2:quote} "} ${0:text}
-	{% endpullquote %}
+snippet c
+	```c
+		${1:codigo}
+	```
+
+snippet c++
+	```cpp
+		${1:codigo}
+	```
+snippet c#
+	```csharp
+		${1:codigo}
+	```
+
+snippet css
+	```css
+		${1:codigo}
+	```
+
+snippet html
+	```html
+		${1:codigo}
+	```
+
+snippet json
+	```json
+		${1:codigo}
+	```
+
+snippet java
+	```java
+		${1:codigo}
+	```
+
+snippet js
+	```js
+		${1:codigo}
+	```
+
+snippet python3
+	```py3
+		${1:codigo}
+	```
+
+snippet python
+	```python
+		${1:codigo}
+	```
+
+snippet ruby
+	```rb
+		${1:codigo}
+	```
+
+snippet xml
+	```xml
+		${1:codigo}
+	```
+
+snippet latex
+	```tex
+		${1:codigo}
+	```
+
+snippet clojure
+	```clojure
+		${1:codigo}
+	```
+
+snippet console
+	```console
+		${1:codigo}
+	```
+
+snippet make
+	```make
+		${1:codigo}
+	```
+
+snippet markdown
+	```markdown
+		${1:codigo}
+	```
+
+snippet sass
+	```sass
+		${1:codigo}
+	```
+
+snippet scss
+	```scss
+		${1:codigo}
+	```
+
+snippet sql
+	```sql
+		${1:codigo}
+	```
+
+snippet vim
+	```vim
+		${1:codigo}
+	```
+
