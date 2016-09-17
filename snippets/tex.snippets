@@ -100,10 +100,6 @@ snippet itemize
 		\item ${0}
 	\end{itemize}
 
-# Item da lista
-snippet item
-	\item ${1:${VISUAL}}
-
 # Lista de descrições, você cria o indice dela
 snippet description
 	\begin{description}
@@ -167,6 +163,11 @@ snippet subsubsection*
 snippet appendix
 	\appendix
 
+snippet anexo
+	\partanexos
+	\chapter{${1:chapter name}}
+	${0}
+
 snippet footnote
 	\footnote{${1:text}}
 
@@ -199,51 +200,42 @@ snippet monospace
 # -------------------------------- TABELAS ----------------------------------
 
 # Exemplo de tabela
-snippet table
-	\begin{table}{!htb}
-		\caption{legenda da tabela}
-		\begin{tabular}{|c|c|c|p{5cm}} \hline
-			Seção 1 				& Preço 	  & Publico & Observações 									\\\ \hline \hline
-			Olga    				& R\$ 8,00  & 656     & O público gostou da exibição  \\\
-			Cidade de Deus  & R\$ 7,50  & 612     & O publico gostou da exibição  \\\ \hline
+snippet htable
+	\begin{table}[!htb]
+		\centering
+		\begin{tabular}{|p{5cm}|p{10cm}|}
+			\toprule
+			\textbf{Representantes}											& Fulano de tal 01 																									\\ \cmidrule(l){2-2}
+																									& Fulano de tal 02 																									\\ \cmidrule(l){2-2}
+																									& Fulano de tal 03 																									\\ \midrule
+			\textbf{O problema é}												& Descrição do problema 																						\\ \midrule
+			\textbf{Isto afeta}													&	As partes interessadas afetadas pelo problemas 										\\ \midrule
+			\textbf{O impacto do problema}							&	Qual é o impacto do problema 																			\\ \midrule
+			\textbf{Uma solução bem sucedida incluiria}	&	Lista de alguns principais benefícios de uma solução bem sucedida \\
+			\bottomrule
 		\end{tabular}
+		\caption{legenda da tabela}
 	\end{table}
 
-# Exemplo de tabela vertical
 snippet vtable
-	\begin{tabular}{|c|c|c|} \hline
-		Eleições 2014 & Aecio   & 41\% Aprovado 	\\\ \cline{3-3}
-									&         & 40\% Reprovado 	\\\ \cline{2-3}
-									& Dilma   & 53\% Aprovado 	\\\ \cline{3-3}
-									&         & 43\% Reprovado 	\\\ \hline
-	\end{tabular}
-
-# Exemplo de tabela horizontal
-snippet htable
-	\begin{tabular}{|c|c|c|c|} \hline
-		\multicolumn{4}{|c|}{Eleições 2014}                             \\\ \hline
-		\multicolumn{2}{|c|}{Aecio} & \multicolumn{2}{c|}{Dilma}        \\\ \hline
-		41\% Aprovado & 40\% Reprovado & 53\% Aprovado & 43\% Reprovado \\\ \hline
-	\end{tabular}
-
-# Exemplo de tabela utilizando o booktabs
-snippet booktabs
-	\begin{tabular}{llr}
-		\toprule
-		\multicolumn{2}{c}{Name} \\\
-		\cmidrule(r){1-2}
-			First name & Last Name & Grade \\\
-		\midrule
-			John 		& Doe 	& \$7.5 \\\
-			Richard & Miles & \$2 \\\
-		\bottomrule
-	\end{tabular}
+	\begin{table}[!htb]
+		\centering
+		\begin{tabular}{|p{3cm}|p{7cm}|p{7cm}}
+			\toprule
+				\textbf{Nome} & \textbf{Representa} & \textbf{Responsabilidade} \\
+			\midrule
+				Equipe de programação 			& Estudantes da Universidade de Brasília & Criar e desenvolver o software descrito no documento \\
+				Equipe de gestão de projeto & Estudantes da Universidade de Brasília & Gerir o desenvolvimento do software \\
+			\bottomrule
+		\end{tabular}
+		\caption{legenda da tabela}
+	\end{table}
 
 # -------------------------------- FIGURAS ----------------------------------
 snippet figure
 	\begin{figure}[${1:!htb}]
 		\centering
-		\includegraphics[width=${2:10cm}, height=${3:10cm}, keepaspectratio=true]{${4:figuras/figura.eps}}
+		\includegraphics[width=${2:15cm}, keepaspectratio=true]{${4:figuras/.eps}}
 		\caption{${5:legend}}
 	\end{figure}
 
@@ -279,55 +271,55 @@ snippet eqnarray*
 	\end{eqnarray}
 
 # infinito
-snippet inf
+snippet infinito
 	\infty
 
 # Divisão
-snippet div
+snippet divisao
 	${1:num}\div${2:den}
 
 # Multiplicação
-snippet mult
+snippet multiplicacao
 	${1:n1}\times${2:n2}
 
 # Elevado ou sobrescrito
-snippet ^
+snippet elevado
 	${1:n1}^${2:n2}
 
 # Matriz ou subescrito
-snippet sub
+snippet subtracao
 	A_{${1:i}}
 
 # Fração
-snippet frac
+snippet fracao
 	\dfrac{${1:num}}{${2:den}}
 
 # Raiz quadrada, cubica ...
-snippet sqrt
+snippet raiz
 	\sqrt{${1:root}}{${2:arg}}
 
 # Derivada com '
-snippet der1
+snippet derivada1
 	f'(x) = 3x-2
 
 # Derivada com pontos
-snippet der2
+snippet derivada2
 	\ddot{y}-2\dot{y}-2t=f(t)
 
 # Equação diferencial
-snippet der3
+snippet derivada3
 	\frac{\textrm{d}y}{\textrm{d}x}=3x-5
 
 # Limite
-snippet lim
+snippet limite
 	\displaystyle\lim_{x\rightarrow0}\frac{\sin{x}{x}}=1
 
 # Integral
-snippet int
+snippet integral
 	\displaystyle\int_{min}^{max}
 
 # Somatorio
-snippet sum
+snippet somatorio
 	\displaystyle\sum_{min}^{max}
 
 # Aumentar caracter
@@ -335,7 +327,7 @@ snippet big
 	\Big|_{min}^{max}
 
 # Matriz 2x3
-snippet mat
+snippet matriz
 	$$
 	  \left[\begin{array}{ccc}
 			2 & 3 & -5 \\\
@@ -345,7 +337,7 @@ snippet mat
 	$$
 
 # Sistema de equação
-snippet sq
+snippet sistema
 	$$
 		\left\{\begin{array}{cccc}
 			2x & +3y &=& 5 \\\
@@ -354,7 +346,7 @@ snippet sq
 	$$
 
 # Sistema condicional de equação
-snippet scq
+snippet condicional
 	$$
 	  |x|=\left\{\begin{array}{cc}
 		  x & \textrm{se} x \qeq 0. \\\
@@ -414,49 +406,131 @@ snippet url
 snippet href
 	\href{${1}}{${2}} ${0}
 
-# URL from Clipboard.
-snippet urlc
-	\url{`@+`} ${0}
-snippet hrefc
-	\href{`@+`}{${1}} ${0}
-
 # -------------------------------- REFERENCIAS ------------------------------
 
 #References
 snippet label
 	\label{mark}
-snippet itd description \item
-	\item[${1:description}] ${0:item}
-snippet figurer reference to a figure
-	${1:Figure}~\ref{${2:fig:}}
-snippet listing reference to a listing
-	${1:Listing}~\ref{${2:list}}
-snippet sectioni reference to a section
-	${1:Section}~\ref{sec:${2}} ${0}
-snippet page reference to a page
-	${1:page}~\pageref{${2}} ${0}
-snippet index \index
-	\index{${1:index}} ${0}
 
 # -------------------------------- CITAÇÕES ---------------------------------
 
-#Citations
+#Citações para as referencias
 snippet citen \citen
-	\citen{${1}} ${0}
+	\cite{${1:id da referencia}} ${0}
 
-# natbib citations
-snippet citep \citep
-	\citep{${1}} ${0}
-snippet citet \citet
-	\citet{${1}} ${0}
-snippet cite \cite[]{}
-	\cite[${1}]{${2}} ${0}
-snippet citea \citeauthor
-	\citeauthor{${1}} ${0}
-snippet citey \citeyear
-	\citeyear{${1}} ${0}
-snippet fcite \footcite[]{}
-	\footcite[${1}]{${2}}${0}
+# -------------------------------- SIMBOLOS ---------------------------------
+
+# Simbolo de mais ou menos
+snippet +-
+	\pm, \mp
+
+# Simbolo de lambda
+snippet lambda
+	\lambda
+
+# Simbolo de delta
+snippet delta
+	\delta
+
+# Simbolo de União
+snippet union
+	\cup
+
+# Simbolo de interceção
+snippet interception
+	\cap
+
+# Simbolo PI
+snippet pi
+	\pi
+
+# Simbolo de diferente
+snippet different
+	\neq
+
+# Simbolo de quase
+snippet almost
+	\simeq
+
+# Simbolo de quase diferente
+snippet nalmost
+	\ncong
+
+# Simbolo de menor ou igual
+snippet <=
+	\leq
+
+# Simbolo de maior ou igual
+snippet >=
+	\geq
+
+# Simbolo de contido
+snippet contido1
+	\subset
+
+# Simbolo de contido
+snippet contido2
+	\supset
+
+# Simbolo de pertence
+snippet pertence
+	\in
+
+# Simbolo de não pertence
+snippet npertence
+	\notin
+
+# Seta a direita
+snippet right
+	\longrightarrow
+
+# Seta a esquerda
+snippet left
+	\longleftarrow
+
+# Seta dos dois lados
+snippet horizontal
+	\longleftrightarrow
+
+# Seta para baixo
+snippet down
+	\downarrow
+
+# Seta para cima
+snippet up
+	\uparrow
+
+# Seta para cima e para baixo
+snippet vertical
+	\updownarrow
+
+# Simbolo de tres pontos ...
+snippet ...
+	\ldots
+
+# Simbolo de coração
+snippet heart
+	\heartsuit
+
+# Simbolo de para todos
+snippet forall
+	\forall
+
+# Simbolo de existe
+snippet existe
+	\exists
+
+# Simbolo de não existe
+snippet nexiste
+	\nexists
+
+# Simbolo de vetor
+snippet vetor
+	\vec{${1:vetor}}
+
+# Simbolos das principais letras gregas
+snippet letrasgregas
+	\alpha, \beta, \eta, \theta, \mu, \nu, \sigma, \omega
 
 # ------------------------------- CODIGOS -----------------------------------
 
