@@ -186,7 +186,7 @@ snippet rightline
 	\rightline{${0:text}}
 snippet centerline
 	\centerline{${0:text}}
-snippet backslash
+snippet \
 	$\backslash$
 
 #	Escolher fonte
@@ -203,15 +203,15 @@ snippet monospace
 snippet htable
 	\begin{table}[!htb]
 		\centering
-		\begin{tabular}{|p{5cm}|p{10cm}|}
+		\begin{tabular}{p{5cm}p{10cm}|}
 			\toprule
-			\textbf{Representantes}											& Fulano de tal 01 																									\\ \cmidrule(l){2-2}
-																									& Fulano de tal 02 																									\\ \cmidrule(l){2-2}
-																									& Fulano de tal 03 																									\\ \midrule
-			\textbf{O problema é}												& Descrição do problema 																						\\ \midrule
-			\textbf{Isto afeta}													&	As partes interessadas afetadas pelo problemas 										\\ \midrule
-			\textbf{O impacto do problema}							&	Qual é o impacto do problema 																			\\ \midrule
-			\textbf{Uma solução bem sucedida incluiria}	&	Lista de alguns principais benefícios de uma solução bem sucedida \\
+			\textbf{Representantes}											& Fulano de tal 01 																									\\\ \\cmidrule(l){2-2}
+																									& Fulano de tal 02 																									\\\ \\cmidrule(l){2-2}
+																									& Fulano de tal 03 																									\\\ \\midrule
+			\textbf{O problema é}												& Descrição do problema 																						\\\ \\midrule
+			\textbf{Isto afeta}													&	As partes interessadas afetadas pelo problemas 										\\\ \\midrule
+			\textbf{O impacto do problema}							&	Qual é o impacto do problema 																			\\\ \\midrule
+			\textbf{Uma solução bem sucedida incluiria}	&	Lista de alguns principais benefícios de uma solução bem sucedida \\\
 			\bottomrule
 		\end{tabular}
 		\caption{legenda da tabela}
@@ -220,12 +220,12 @@ snippet htable
 snippet vtable
 	\begin{table}[!htb]
 		\centering
-		\begin{tabular}{|p{3cm}|p{7cm}|p{7cm}}
+		\begin{tabular}{p{3cm}p{7cm}p{7cm}}
 			\toprule
-				\textbf{Nome} & \textbf{Representa} & \textbf{Responsabilidade} \\
+				\textbf{Nome} & \textbf{Representa} & \textbf{Responsabilidade} \\\
 			\midrule
-				Equipe de programação 			& Estudantes da Universidade de Brasília & Criar e desenvolver o software descrito no documento \\
-				Equipe de gestão de projeto & Estudantes da Universidade de Brasília & Gerir o desenvolvimento do software \\
+				Equipe de programação 			& Estudantes da Universidade de Brasília & Criar e desenvolver o software descrito no documento \\\ \\midrule
+				Equipe de gestão de projeto & Estudantes da Universidade de Brasília & Gerir o desenvolvimento do software \\\
 			\bottomrule
 		\end{tabular}
 		\caption{legenda da tabela}
@@ -233,10 +233,10 @@ snippet vtable
 
 # -------------------------------- FIGURAS ----------------------------------
 snippet figure
-	\begin{figure}[${1:!htb}]
+	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=${2:15cm}, keepaspectratio=true]{${4:figuras/.eps}}
-		\caption{${5:legend}}
+		\includegraphics[width=${1:12cm}, keepaspectratio=true]{${2:figuras/.eps}}
+		\caption{${3:legend}}
 	\end{figure}
 
 snippet figures
@@ -412,13 +412,104 @@ snippet href
 snippet label
 	\label{mark}
 
+snippet ref
+	\ref{}
+
+
 # -------------------------------- CITAÇÕES ---------------------------------
 
 #Citações para as referencias
-snippet citen \citen
+snippet cite
 	\cite{${1:id da referencia}} ${0}
 
-# -------------------------------- SIMBOLOS ---------------------------------
+# -------------------------------- CODIGOS-------------------------------------------------------------------------------------------------
+
+snippet java
+	\begin{lstlisting}[style=Java, title={Java}, label=java]
+		/**
+		 * comentario
+		 */
+		public class HelloWorldApp {
+			public static void main (String argv[]) {
+				// Comentario
+				System.out.println("Hello World!");
+			}
+		}
+	\end{lstlisting}
+
+snippet c++
+	\begin{lstlisting}[style=CPP, title={C++}, label=c]
+		#include <iostream>
+		using namespace std;
+		int main() {
+			/* comentario */
+			int n, i, a = 0, b = 1, F;
+			cout << "Digite o numero de termos da sequencia de Fibonacci: ";
+			cin >> n;
+			cout << a << " " << b << " ";
+			for (i = 0; i < n - 2; i++) {
+				F = a + b;
+				cout << F << " ";
+				a = b;
+				b = F;
+			}
+			cout << endl;
+			return 0;
+		}
+	\end{lstlisting}
+
+snippet latex
+	\begin{lstlisting}[style=LaTeX, title=LaTeX]
+		\documentclass{article}
+		\usepackage{lstlisting,showexpl}
+		\begin{document}
+			Exemplo de texto \LaTeX.
+		\end{document}
+	\end{lstlisting}
+
+snippet ruby
+	\begin{lstlisting}[style=Ruby, title=Ruby]
+		def function()
+			# comentario
+			title = "Hello Word"
+			return title
+		end
+	\end{lstlisting}
+
+snippet python
+	\begin{lstlisting}[style=Python, title=Python]
+		def function():
+			# comentario
+			title = "Hello word"
+			print title
+
+		function()
+	\end{lstlisting}
+
+snippet html
+	\begin{lstlisting}[style=HTML, title=HTML]
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<title>html</title>
+				<style>
+					.style {
+						textalign:center;
+					}
+				</style>
+			</head>
+			<body>
+				<h1 class="style">Titulo</h1>
+			</body>
+		</html>
+	\end{lstlisting}
+
+snippet sql
+	\begin{lstlisting}[style=SQL, title=SQL]
+		SELECT * FROM Tabela;
+	\end{lstlisting}
+
+# -------------------------------- SIMBOLOS -----------------------------------------------------------------------------------------------
 
 # Simbolo de mais ou menos
 snippet +-
