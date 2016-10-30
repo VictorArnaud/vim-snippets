@@ -188,47 +188,65 @@ snippet centerline
 	\centerline{${0:text}}
 snippet \
 	$\backslash$
-
 #	Escolher fonte
-snippet sans
+snippet sansu
 	\textsf{${0:text}}
 snippet roman
 	\textrm{${0:text}}
-snippet monospace
+snippet monosupace
 	\texttt{${0:text}}
 
 # -------------------------------- TABELAS ----------------------------------
 
 # Exemplo de tabela
-snippet htable
+snippet table
 	\begin{table}[!htb]
 		\centering
-		\begin{tabular}{p{5cm}p{10cm}|}
-			\toprule
-			\textbf{Representantes}											& Fulano de tal 01 																									\\\ \\cmidrule(l){2-2}
-																									& Fulano de tal 02 																									\\\ \\cmidrule(l){2-2}
-																									& Fulano de tal 03 																									\\\ \\midrule
-			\textbf{O problema é}												& Descrição do problema 																						\\\ \\midrule
-			\textbf{Isto afeta}													&	As partes interessadas afetadas pelo problemas 										\\\ \\midrule
-			\textbf{O impacto do problema}							&	Qual é o impacto do problema 																			\\\ \\midrule
-			\textbf{Uma solução bem sucedida incluiria}	&	Lista de alguns principais benefícios de uma solução bem sucedida \\\
-			\bottomrule
-		\end{tabular}
 		\caption{legenda da tabela}
+		\begin{tabular}{|c|c|c|p{5cm}|} \hline
+			Seção 1         & Preço     & Publico & Observações                   \\\ \\hline \hline
+			Olga            & R\$ 8,00  & 656     & O público gostou da exibição  \\\ \\hline
+			Cidade de Deus  & R\$ 7,50  & 612     & O publico gostou da exibição  \\\ \\hline
+		\end{tabular}
 	\end{table}
 
-snippet vtable
+snippet table1
+	\begin{table}[!htb]
+	  \centering
+		\caption{legenda da tabela}
+		\begin{tabular}{|c|c|c|} \hline
+			2 Semestre & Turma A & 41 Aprovados   \\\ \\cline{3-3}
+								 &         & 40 Reprovados  \\\ \\cline{2-3}
+								 & Turma B & 53 Aprovados   \\\ \\cline{3-3}
+								 &         & 43 Reprovados  \\\ \\hline
+		\end{tabular}
+	\end{table}
+
+snippet table2
 	\begin{table}[!htb]
 		\centering
-		\begin{tabular}{p{3cm}p{7cm}p{7cm}}
+		\caption{legenda da tabela}
+		\begin{tabular}{|c|c|c|c|} \hline
+			\multicolumn{4}{|c|}{2 Semestre}                             \\\ \\hline
+			\multicolumn{2}{|c|}{Turma A} & \multicolumn{2}{c|}{Turma B} \\\ \\hline
+			41 Aprovados & 40 Reprovados & 53 Aprovados & 43 Reprovados  \\\ \\hline
+		\end{tabular}
+	\end{table}
+
+snippet table3
+	\begin{table}[!htb]
+		\centering
+		\begin{tabular}{cp{5cm}p{5cm}}
 			\toprule
-				\textbf{Nome} & \textbf{Representa} & \textbf{Responsabilidade} \\\
+				\textbf{Cabeçalho 1} & \textbf{Cabeçalho 2} & \textbf{Cabeçalho 3} \\\
 			\midrule
-				Equipe de programação 			& Estudantes da Universidade de Brasília & Criar e desenvolver o software descrito no documento \\\ \\midrule
-				Equipe de gestão de projeto & Estudantes da Universidade de Brasília & Gerir o desenvolvimento do software \\\
+				Conteudo 1 & Conteudo 2 & Conteudo 3 \\\
+				Conteudo 1 & Conteudo 2 & Conteudo 3 \\\
+				Conteudo 1 & Conteudo 2 & Conteudo 3 \\\
+				Conteudo 1 & Conteudo 2 & Conteudo 3 \\\
 			\bottomrule
 		\end{tabular}
-		\caption{legenda da tabela}
+		\caption{Legenda da tabela}
 	\end{table}
 
 # -------------------------------- FIGURAS ----------------------------------
@@ -287,12 +305,12 @@ snippet elevado
 	${1:n1}^${2:n2}
 
 # Matriz ou subescrito
-snippet subtracao
+snippet subescrito
 	A_{${1:i}}
 
 # Fração
 snippet fracao
-	\dfrac{${1:num}}{${2:den}}
+	\displaystyle\frac{${1:num}}{${2:den}}
 
 # Raiz quadrada, cubica ...
 snippet raiz
@@ -524,11 +542,11 @@ snippet delta
 	\delta
 
 # Simbolo de União
-snippet union
+snippet uniao
 	\cup
 
 # Simbolo de interceção
-snippet interception
+snippet intercecao
 	\cap
 
 # Simbolo PI
@@ -536,15 +554,15 @@ snippet pi
 	\pi
 
 # Simbolo de diferente
-snippet different
+snippet diferente
 	\neq
 
 # Simbolo de quase
-snippet almost
+snippet quase
 	\simeq
 
 # Simbolo de quase diferente
-snippet nalmost
+snippet nquase
 	\ncong
 
 # Simbolo de menor ou igual
@@ -572,11 +590,11 @@ snippet npertence
 	\notin
 
 # Seta a direita
-snippet right
+snippet direita
 	\longrightarrow
 
 # Seta a esquerda
-snippet left
+snippet esquerda
 	\longleftarrow
 
 # Seta dos dois lados
@@ -584,11 +602,11 @@ snippet horizontal
 	\longleftrightarrow
 
 # Seta para baixo
-snippet down
+snippet baixo
 	\downarrow
 
 # Seta para cima
-snippet up
+snippet cima
 	\uparrow
 
 # Seta para cima e para baixo
@@ -600,11 +618,11 @@ snippet ...
 	\ldots
 
 # Simbolo de coração
-snippet heart
+snippet coracao
 	\heartsuit
 
 # Simbolo de para todos
-snippet forall
+snippet todos
 	\forall
 
 # Simbolo de existe
@@ -623,5 +641,4 @@ snippet vetor
 snippet letrasgregas
 	\alpha, \beta, \eta, \theta, \mu, \nu, \sigma, \omega
 
-# ------------------------------- CODIGOS -----------------------------------
 
