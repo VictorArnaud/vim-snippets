@@ -443,88 +443,35 @@ snippet cite
 # -------------------------------- CODIGOS-------------------------------------------------------------------------------------------------
 
 snippet java
-	\begin{lstlisting}[style=Java, title={Java}, label=java]
-		/**
-		 * comentario
-		 */
-		public class HelloWorldApp {
-			public static void main (String argv[]) {
-				// Comentario
-				System.out.println("Hello World!");
-			}
-		}
+	\begin{lstlisting}[style=Java]
 	\end{lstlisting}
 
 snippet c++
-	\begin{lstlisting}[style=CPP, title={C++}, label=c]
-		#include <iostream>
-		using namespace std;
-		int main() {
-			/* comentario */
-			int n, i, a = 0, b = 1, F;
-			cout << "Digite o numero de termos da sequencia de Fibonacci: ";
-			cin >> n;
-			cout << a << " " << b << " ";
-			for (i = 0; i < n - 2; i++) {
-				F = a + b;
-				cout << F << " ";
-				a = b;
-				b = F;
-			}
-			cout << endl;
-			return 0;
-		}
+	\begin{lstlisting}[style=CPP]
 	\end{lstlisting}
 
 snippet latex
-	\begin{lstlisting}[style=LaTeX, title=LaTeX]
-		\documentclass{article}
-		\usepackage{lstlisting,showexpl}
-		\begin{document}
-			Exemplo de texto \LaTeX.
-		\end{document}
+	\begin{lstlisting}[style=LaTeX]
 	\end{lstlisting}
 
 snippet ruby
-	\begin{lstlisting}[style=Ruby, title=Ruby]
-		def function()
-			# comentario
-			title = "Hello Word"
-			return title
-		end
+	\begin{lstlisting}[style=Ruby]
 	\end{lstlisting}
 
 snippet python
-	\begin{lstlisting}[style=Python, title=Python]
-		def function():
-			# comentario
-			title = "Hello word"
-			print title
-
-		function()
+	\begin{lstlisting}[style=Python]
 	\end{lstlisting}
 
 snippet html
-	\begin{lstlisting}[style=HTML, title=HTML]
-		<!DOCTYPE html>
-		<html>
-			<head>
-				<title>html</title>
-				<style>
-					.style {
-						textalign:center;
-					}
-				</style>
-			</head>
-			<body>
-				<h1 class="style">Titulo</h1>
-			</body>
-		</html>
+	\begin{lstlisting}[style=HTML]
 	\end{lstlisting}
 
 snippet sql
-	\begin{lstlisting}[style=SQL, title=SQL]
-		SELECT * FROM Tabela;
+	\begin{lstlisting}[style=SQL]
+	\end{lstlisting}
+
+snippet shell
+	\begin{lstlisting}[style=SHELL]
 	\end{lstlisting}
 
 # -------------------------------- SIMBOLOS -----------------------------------------------------------------------------------------------
