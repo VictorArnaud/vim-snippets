@@ -202,12 +202,16 @@ snippet monosupace
 snippet table
 	\begin{table}[!htb]
 		\centering
-		\caption{legenda da tabela}
-		\begin{tabular}{|c|c|c|p{5cm}|} \hline
-			Seção 1         & Preço     & Publico & Observações                   \\\ \\hline \hline
-			Olga            & R\$ 8,00  & 656     & O público gostou da exibição  \\\ \\hline
-			Cidade de Deus  & R\$ 7,50  & 612     & O publico gostou da exibição  \\\ \\hline
+		\rowcolors{2}{gray!25}{white}
+		\begin{tabular}{c|cccp{5cm}} \hline
+			\rowcolor{gray!50}
+				& \textbf{Seção 1}  & \textbf{Preço}  & \textbf{Publico} & \textbf{Observações}             \\\
+			1 & Olga              & R\$ 8,00        & 656              & O público gostou da exibição  		\\\
+			2 & Cidade de Deus    & R\$ 7,50        & 612              & O publico gostou da exibição  		\\\
+			3 & Apocalipse  		  & R\$ 9,50        & 312              & O publico gostou da exibição  		\\\
+			4 & Crepusculo  		  & R\$ 7,50        & 112              & O publico não gostou da exibição
 		\end{tabular}
+		\caption{legenda da tabela}
 	\end{table}
 
 snippet table1
