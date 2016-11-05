@@ -203,12 +203,26 @@ snippet table
 	\begin{table}[!htb]
 		\centering
 		\rowcolors{2}{gray!25}{white}
-		\begin{tabular}{c|lp{10cm}} \hline
+		\begin{tabular}{c|lp{10cm}} 												 \\hline
 			\rowcolor{gray!50}
 					& \textbf{Comando}  & \textbf{Descrição}  		 \\\ \\hline
 				1 & Comando  					& Descrição                \\\
 				2 & Comando  					& Descrição                \\\
 				3 & Comando  					& Descrição
+		\end{tabular}
+		\caption{Legenda da tabela}
+	\end{table}
+
+snippet htable
+	\begin{table}[!htb]
+		\centering
+		\rowcolors{2}{gray!25}{white}
+		\begin{tabular}{c|p{5cm}p{8cm}} 		 \\hline
+			\rowcolor{gray!50}
+			\multicolumn{2}{c}{Nome da Tabela} \\\ \\hline
+			\textbf{Cabeçalho}  & Descrição    \\\
+			\textbf{Cabeçalho}  & Descrição    \\\
+			\textbf{Cabeçalho}  & Descrição
 		\end{tabular}
 		\caption{Legenda da tabela}
 	\end{table}
@@ -265,13 +279,12 @@ snippet figures
 		\begin{minipage}{${1:7cm}}
 			\centering
 			\includegraphics[scale=${2:0.7}]{${3:figuras/figura1.eps}}
-			\caption{${4:legend}}
-		\end{minipage}\hspace{${5:2cm}}
-		\begin{minipage}{${6:7cm}}
+		\end{minipage}\hspace{${4:2cm}}
+		\begin{minipage}{${5:7cm}}
 			\centering
-			\includegraphics[scale=${7:0.7}]{${8:figuras/figura1.eps}}
-			\caption{${9:legend}}
-		\end{minipage}\hspace{${10:2cm}}
+			\includegraphics[scale=${6:0.7}]{${7:figuras/figura1.eps}}
+		\end{minipage}\hspace{${8:2cm}}
+		\caption{${9:legend}}
 	\end{figure}
 
 # -------------------------------- MATEMATICA -------------------------------
